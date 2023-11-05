@@ -1,0 +1,38 @@
+//统计输入的一个字符串中的
+//统计一行字符串中的英文字母个数、空格个数、数字个数、其他字符个数
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        countCharacters(input);
+    }
+
+    public static void countCharacters(String input) {
+        int letterCount = 0;
+        int spaceCount = 0;
+        int digitCount = 0;
+        int otherCount = 0;
+
+        for (char ch : input.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                letterCount++;
+            } else if (Character.isDigit(ch)) {
+                digitCount++;
+            } else if (ch == ' ') {
+                spaceCount++;
+            } else {
+                otherCount++;
+            }
+        }
+
+        System.out.println("字母个数：" + letterCount);
+        System.out.println("数字个数：" + digitCount);
+        System.out.println("空格个数：" + spaceCount);
+        System.out.println("其他字符个数：" + otherCount);
+    }
+}
+
