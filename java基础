@@ -1,0 +1,40 @@
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        //以空格分割将s存到一个字符串数组中
+        String[] strings = s.split(" ");
+
+        int[] a = new int[4];
+        for (int i = 0; i < strings.length; i++) {
+            //strings[i].charAt(0)  取字符串string[i]的第一个字符
+            if (strings[i].charAt(0) < '0' || strings[i].charAt(0) > '9') {
+                System.out.println("number input error");
+                return;
+            } else if (strings[i].length() != 1) {
+                System.out.println("Numerical range error");
+                return;
+            } else {
+                //将字符串转化为数字
+                a[i] = Integer.parseInt(strings[i]);
+            }
+        }
+
+        Arrays.sort(a);
+        String s1 = "";
+        for (int i = 3; i >= 0; i--) {
+            s1 += a[i];
+        }
+        String s2 = "";
+        for (int i = 0; i < 4; i++) {
+            s2 += a[i];
+        }
+       
+    }
+}
